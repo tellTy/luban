@@ -4,12 +4,54 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="de18533d-c1d6-404a-a1df-0447ba5aa9e1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/uaa-service/src/main/java/com/example/uaa/config/LdapLoginFilter.java" afterDir="false" />
+    <list default="true" id="de18533d-c1d6-404a-a1df-0447ba5aa9e1" name="Changes" comment="1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uaa-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/uaa-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/uaa-service/src/main/java/com/example/uaa/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/uaa-service/src/main/java/com/example/uaa/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway-service/target/classes/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway-service/target/classes/com/example/gateway/GatewayServiceApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway-service/target/classes/com/example/gateway/config/SecurityConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway-service/target/gateway-service-1.0.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway-service/target/gateway-service-1.0.0.jar.original" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway-service/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway-service/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gateway-service/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/target/classes/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/target/classes/bootstrap.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/target/classes/com/example/product/ProductServiceApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/target/classes/com/example/product/controller/ProductController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/target/classes/com/example/product/entity/Product.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/target/classes/com/example/product/mapper/ProductMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/target/classes/com/example/product/service/ProductService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/target/classes/com/example/product/service/impl/ProductServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/target/product-service-1.0.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/product-service/target/product-service-1.0.0.jar.original" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uaa-service/target/classes/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uaa-service/target/classes/bootstrap.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uaa-service/target/classes/com/example/uaa/UaaServiceApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uaa-service/target/classes/com/example/uaa/config/LdapLoginFilter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uaa-service/target/classes/com/example/uaa/config/SecurityConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uaa-service/target/classes/com/example/uaa/controller/AuthController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uaa-service/target/classes/com/example/uaa/entity/Role.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uaa-service/target/classes/com/example/uaa/entity/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uaa-service/target/classes/com/example/uaa/entity/UserRole.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uaa-service/target/classes/com/example/uaa/mapper/RoleMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uaa-service/target/classes/com/example/uaa/mapper/UserMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uaa-service/target/classes/com/example/uaa/mapper/UserRoleMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uaa-service/target/classes/com/example/uaa/service/UserDetailsServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uaa-service/target/classes/com/example/uaa/util/JwtTokenProvider.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uaa-service/target/maven-archiver/pom.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uaa-service/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uaa-service/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uaa-service/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uaa-service/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uaa-service/target/uaa-service-1.0.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/uaa-service/target/uaa-service-1.0.0.jar.original" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +69,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="34Jy3i8izimDqYf5oSLMLnm1GmU" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -84,8 +134,23 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1760945775667</updated>
-      <workItem from="1760945777068" duration="12539000" />
+      <workItem from="1760945777068" duration="14252000" />
     </task>
+    <task id="LOCAL-00001" summary="1">
+      <created>1760968474909</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1760968474909</updated>
+    </task>
+    <task id="LOCAL-00002" summary="1">
+      <created>1760970445152</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1760970445152</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -101,5 +166,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="1" />
+    <option name="LAST_COMMIT_MESSAGE" value="1" />
   </component>
 </project>
