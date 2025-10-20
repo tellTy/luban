@@ -93,18 +93,4 @@ curl -s -X DELETE "$BASE_URL/products/$PRODUCT_ID" \
   -H "Authorization: Bearer $EDITOR_TOKEN" | jq
 echo
 
-# test ldap login
-echo "=== 测试LDAP登录 ==="
-LDAP_RESPONSE=$(curl -s -X POST "$BASE_URL/auth/ldap/login" \
-  -H "Content-Type: application/json" \
-  -d '{"username": "ldap_user_1", "password": "ldap_user_1"}')
-echo "$LDAP_RESPONSE" | jq
-LDAP_TOKEN=$(echo "$LDAP_RESPONSE" | jq -r '.token')
-echo "LDAP用户令牌: $LDAP_TOKEN"
-echo
 
-# test github oauth2 login
-echo "=== 测试GitHub OAuth2登录 ==="
-echo "请访问以下URL进行GitHub登录:"
-echo "$BASE_URL/oauth2/authorize/github"
-echo
