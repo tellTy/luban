@@ -1,0 +1,47 @@
+server:
+  port: 8081
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://mysql:3306/uaa_db?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+    username: root
+    password: root
+  ldap:
+    urls: ldap://openldap:389
+    base: dc=example,dc=com
+    username: cn=admin,dc=example,dc=com
+    password: admin
+
+mybatis-plus:
+  mapper-locations: classpath:mapper/**/*.xml
+  type-aliases-package: com.example.uaa.entity
+  configuration:
+    map-underscore-to-camel-case: true
+
+security:
+  oauth2:
+    client:
+      registration:
+        github:
+          client-id: your-github-client-id
+          client-secret: your-github-client-secret
+          scope: user:email
+          redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+      provider:
+        github:
+          authorization-uri: https://github.com/login/oauth/authorize
+          token-uri: https://github.com/login/oauth/access_token
+          user-info-uri: https://api.github.com/user
+          user-name-attribute: login
+    resource-server:
+      jwt:
+        secret: your-jwt-secret-key
+
+logging:
+  level:
+    org.springframework.security: INFO
+    org.springframework.web: INFO
+    com.example.uaa: DEBUG
+    org.springframework.ldap: INFO
+    org.springframework.data.ldap: INFO

@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="de18533d-c1d6-404a-a1df-0447ba5aa9e1" name="Changes" comment="" />
+    <list default="true" id="de18533d-c1d6-404a-a1df-0447ba5aa9e1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/uaa-service/src/main/java/com/example/uaa/config/LdapLoginFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uaa-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/uaa-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/uaa-service/src/main/java/com/example/uaa/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/uaa-service/src/main/java/com/example/uaa/config/SecurityConfig.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,7 +53,21 @@
       <recent name="C:\Users\2024\Downloads\zzlove-master\luban" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Spring Boot.UaaServiceApplication">
+    <configuration name="GatewayServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="gateway-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.gateway.GatewayServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ProductServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="product-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.product.ProductServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="UaaServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="uaa-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.uaa.UaaServiceApplication" />
@@ -64,11 +84,22 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1760945775667</updated>
-      <workItem from="1760945777068" duration="9962000" />
+      <workItem from="1760945777068" duration="12539000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

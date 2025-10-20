@@ -23,8 +23,6 @@
         <module>uaa-service</module>
         <module>product-service</module>
         <module>gateway-service</module>
-        <module>gateway-service</module>
-        <module>product-service</module>
     </modules>
 
     <!-- 版本管理 -->
@@ -127,7 +125,6 @@
                 <plugin>
                     <groupId>org.springframework.boot</groupId>
                     <artifactId>spring-boot-maven-plugin</artifactId>
-                    <version>${project.parent.version}</version>
                     <configuration>
                         <excludes>
                             <exclude>
