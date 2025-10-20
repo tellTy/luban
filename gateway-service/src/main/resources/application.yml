@@ -1,0 +1,37 @@
+server:
+  port: 7573
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: uaa-service
+          uri: lb://uaa-service
+          predicates:
+            - Path=/auth/**, /login/**, /oauth2/**
+          filters:
+            - StripPrefix=0
+
+        - id: product-service
+          uri: lb://product-service
+          predicates:
+            - Path=/products/**
+          filters:
+            - StripPrefix=0
+
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+
+  security:
+    oauth2:
+      resource-server:
+        jwt:
+          secret: your-jwt-secret-key
+
+logging:
+  level:
+    org.springframework.cloud.gateway: INFO
+    org.springframework.security: INFO
+    org.springframework.web: INFO

@@ -1,0 +1,141 @@
+version: '3.8'
+
+services:
+  nacos-server:
+    image: nacos/nacos-server:v2.0.3
+    container_name: nacos-server
+    environment:
+      - MODE=standalone
+      - SPRING_DATASOURCE_PLATFORM=mysql
+      - MYSQL_SERVICE_HOST=mysql
+      - MYSQL_SERVICE_PORT=3306
+      - MYSQL_SERVICE_DB_NAME=nacos_config
+      - MYSQL_SERVICE_USER=root
+      - MYSQL_SERVICE_PASSWORD=root
+    ports:
+      - "8848:8848"
+    depends_on:
+      - mysql
+    networks:
+      - app-network
+
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=uaa_db
+      - MYSQL_DATABASE=product_db
+      - MYSQL_DATABASE=nacos_config
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - mysql-data:/var/lib/mysql
+      - ./sql:/docker-entrypoint-initdb.d
+    networks:
+      - app-network
+
+  openldap:
+    image: osixia/openldap:1.4.0
+    container_name: openldap
+    environment:
+      - LDAP_ORGANISATION=Example
+      - LDAP_DOMAIN=example.com
+      - LDAP_ADMIN_PASSWORD=admin
+    ports:
+      - "389:389"
+    volumes:
+      - ./ldap-init.ldif:/container/service/slapd/assets/config/bootstrap/ldif/custom/init.ldif
+      - ldap-data:/var/lib/ldap
+      - ldap-config:/etc/ldap/slapd.d
+    networks:
+      - app-network
+
+  phpldapadmin:
+    image: osixia/phpldapadmin:0.9.0
+    container_name: phpldapadmin
+    environment:
+      - PHPLDAPADMIN_LDAP_HOSTS=openldap
+    ports:
+      - "6443:443"
+    depends_on:
+      - openldap
+    networks:
+      - app-network
+
+  uaa-service:
+    build:
+      context: ./uaa-service
+      dockerfile: Dockerfile
+    container_name: uaa-service
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/uaa_db?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=root
+      - SPRING_LDAP_URLS=ldap://openldap:389
+      - SPRING_LDAP_BASE=dc=example,dc=com
+      - SPRING_LDAP_USERNAME=cn=admin,dc=example,dc=com
+      - SPRING_LDAP_PASSWORD=admin
+      - SPRING_CLOUD_NACOS_DISCOVERY_SERVER-ADDR=nacos-server:8848
+      - SPRING_CLOUD_NACOS_CONFIG_SERVER-ADDR=nacos-server:8848
+      - SECURITY_OAUTH2_RESOURCE-SERVER_JWT_SECRET=your-jwt-secret-key
+    ports:
+      - "8081:8081"
+    depends_on:
+      - nacos-server
+      - mysql
+      - openldap
+    networks:
+      - app-network
+
+  product-service:
+    build:
+      context: ./product-service
+      dockerfile: Dockerfile
+    container_name: product-service
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/product_db?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=root
+      - SPRING_CLOUD_NACOS_DISCOVERY_SERVER-ADDR=nacos-server:8848
+      - SPRING_CLOUD_NACOS_CONFIG_SERVER-ADDR=nacos-server:8848
+      - SECURITY_OAUTH2_RESOURCE-SERVER_JWT_SECRET=your-jwt-secret-key
+    ports:
+      - "8082:8082"
+    depends_on:
+      - nacos-server
+      - mysql
+      - uaa-service
+    networks:
+      - app-network
+
+  gateway-service:
+    build:
+      context: ./gateway-service
+      dockerfile: Dockerfile
+    container_name: gateway-service
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev
+      - SPRING_CLOUD_NACOS_DISCOVERY_SERVER-ADDR=nacos-server:8848
+      - SPRING_CLOUD_NACOS_CONFIG_SERVER-ADDR=nacos-server:8848
+      - SECURITY_OAUTH2_RESOURCE-SERVER_JWT_SECRET=your-jwt-secret-key
+    ports:
+      - "7573:7573"
+    depends_on:
+      - nacos-server
+      - uaa-service
+      - product-service
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  mysql-data:
+  ldap-data:
+  ldap-config:
