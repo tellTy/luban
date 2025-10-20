@@ -5,6 +5,7 @@ import com.example.uaa.entity.User;
 import com.example.uaa.mapper.RoleMapper;
 import com.example.uaa.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -31,8 +32,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         }
 
         List<Role> roles = roleMapper.selectByUserId(user.getId());
-        List<SimpleGrantedAuthority> authorities = roles.stream()
-                .map(role -> new SimpleGrantedAuthority("ROLE_" + role.getName()))
+        List<GrantedAuthority> authorities = roles.stream()
+                .map(role -> new SimpleGrantedAuthority("ROLE_" + role.getName())) // 实际元素仍是 SimpleGrantedAuthority
                 .collect(Collectors.toList());
 
         user.setAuthorities(authorities);
