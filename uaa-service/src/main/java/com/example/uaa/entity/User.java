@@ -17,10 +17,15 @@ public class User implements UserDetails {
 
     @TableId(type = IdType.AUTO)
     private Long id;
+
     private String username;
+
     private String password;
+
     private Boolean enabled = true;
+
     private LocalDateTime createdAt;
+
     private LocalDateTime updatedAt;
 
     private transient List<GrantedAuthority> authorities;
