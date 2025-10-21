@@ -63,6 +63,7 @@ services:
     container_name: openldap
     environment:
       - LDAP_ORGANISATION=Example
+      - LDAP_TLS=false
       - LDAP_DOMAIN=example.com
       - LDAP_ADMIN_PASSWORD=admin
       - LDAP_PASSWORD_HASH=clear  # 指定密码哈希算法为明文
