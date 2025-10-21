@@ -51,9 +51,10 @@ public class LdapLoginFilter extends AbstractAuthenticationProcessingFilter {
         String password = null;
 
         Map<String, String> requestBody = objectMapper.readValue(request.getInputStream(), Map.class);
+        System.out.println("reqsetname:"+requestBody.size());
         username = obtainUsername(requestBody);
         password = obtainPassword(requestBody);
-
+        System.out.println("username:"+username);
         // 3. 校验用户名密码不为空
         if (username == null) username = "";
         if (password == null) password = "";
