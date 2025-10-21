@@ -15,10 +15,10 @@ public class JwtTokenProvider {
 
     private static final Logger logger = LoggerFactory.getLogger(JwtTokenProvider.class);
 
-    @Value("${security.oauth2.resource-server.jwt.secret}")
+    @Value("${spring.security.oauth2.resource-server.jwt.secret}")
     private String jwtSecret;
 
-    @Value("${security.oauth2.resource-server.jwt.expiration:7200000}")
+    @Value("${spring.security.oauth2.resource-server.jwt.expiration:7200000}")
     private long jwtExpirationMs;
 
     public String generateToken(Authentication authentication) {
