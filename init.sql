@@ -56,9 +56,9 @@ INSERT INTO roles (name, description) VALUES
 
 -- 插入测试用户（密码：123456，BCrypt加密后的值）
 INSERT INTO users (username, password) VALUES
-                                           ('user_1', '$2a$10$8.5fZJ7lF3L6Q4H4QJZf8OeX5QJZf8OeX5QJZf8OeX5QJZf8OeX5'),
-                                           ('editor_1', '$2a$10$8.5fZJ7lF3L6Q4H4QJZf8OeX5QJZf8OeX5QJZf8OeX5QJZf8OeX5'),
-                                           ('adm_1', '$2a$10$8.5fZJ7lF3L6Q4H4QJZf8OeX5QJZf8OeX5QJZf8OeX5QJZf8OeX5');
+                                           ('user_1', 'user_1'),
+                                           ('editor_1', 'editor_1'),
+                                           ('adm_1', 'adm_1');
 
 -- 关联用户与角色
 INSERT INTO user_roles (user_id, role_id) VALUES

@@ -105,8 +105,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
         // 配置 LDAP 登录过滤器，放在表单登录过滤器之前
         LdapLoginFilter ldapLoginFilter = new LdapLoginFilter("/auth/ldap/login", authenticationManager());
-        ldapLoginFilter.setUsernameParameter("userName");
-        ldapLoginFilter.setPasswordParameter("passWord");
+        ldapLoginFilter.setUsernameParameter("username");
+        ldapLoginFilter.setPasswordParameter("password");
         http.addFilterBefore(ldapLoginFilter, UsernamePasswordAuthenticationFilter.class);
     }
 }
