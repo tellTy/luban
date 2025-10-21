@@ -11,4 +11,4 @@ COPY target/gateway-service-1.0.0.jar /app/gateway-service.jar
 # 暴露端口（根据 gateway-service 的 server.port 填写，如 8080）
 EXPOSE 8080
 
-ENTRYPOINT ["java", "-Dspring.main.allow-bean-definition-overriding=true", "-jar", "/app/gateway-service.jar"]
+ENTRYPOINT ["java", "-jar", "/app/gateway-service.jar", "--spring.main.allow-bean-definition-overriding=true"]
