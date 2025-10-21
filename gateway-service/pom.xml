@@ -37,6 +37,13 @@
          <dependency>
              <groupId>org.springframework.boot</groupId>
              <artifactId>spring-boot-starter-security</artifactId>
+             <exclusions>
+                 <!-- 排除 Servlet 版本的 Security 依赖 -->
+                 <exclusion>
+                     <groupId>org.springframework.security</groupId>
+                     <artifactId>spring-security-web</artifactId>
+                 </exclusion>
+             </exclusions>
          </dependency>
 
         <dependency>
@@ -48,13 +55,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-oauth2-resource-server</artifactId>
-            <exclusions>
-                <exclusion>
-                    <artifactId>spring-security-web</artifactId>
-                    <groupId>org.springframework.security</groupId>
-                </exclusion>
-            </exclusions>
-
         </dependency>
 
         <!-- JJwt -->

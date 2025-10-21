@@ -5,11 +5,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity;
 import org.springframework.security.config.web.server.ServerHttpSecurity;
-import org.springframework.security.oauth2.jwt.*;
+import org.springframework.security.oauth2.jwt.ReactiveJwtDecoder;
+import org.springframework.security.oauth2.jwt.NimbusReactiveJwtDecoder;
 import org.springframework.security.web.server.SecurityWebFilterChain;
-
-import javax.crypto.SecretKey;
-import javax.crypto.spec.SecretKeySpec;
 
 @Configuration
 @EnableWebFluxSecurity
@@ -23,14 +21,13 @@ public class SecurityConfig {
         return new NimbusReactiveJwtDecoder(jwtSecret);
     }
 
-
-
     @Bean
     public SecurityWebFilterChain securityWebFilterChain(ServerHttpSecurity http) {
         http
                 .csrf().disable()
                 .authorizeExchange()
-                .pathMatchers("/auth/**", "/login/**", "/oauth2/**", "/swagger-ui/**", "/v3/api-docs/**").permitAll()
+                .pathMatchers("/auth/**", "/login/**", "/oauth2/**",
+                        "/swagger-ui/**", "/v3/api-docs/**").permitAll()
                 .pathMatchers("/products/**").authenticated()
                 .anyExchange().authenticated()
                 .and()
