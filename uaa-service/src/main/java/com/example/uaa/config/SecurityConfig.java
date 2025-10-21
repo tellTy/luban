@@ -90,12 +90,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         .antMatchers("/auth/**", "/login/**", "/oauth2/**", "/swagger-ui/**", "/v3/api-docs/**").permitAll()
                         .anyRequest().authenticated()
                 )
-                .formLogin(form -> form
-                        .loginProcessingUrl("/auth/login")
-                        .successHandler((req, res, auth) -> res.setStatus(200))
-                        .failureHandler((req, res, ex) -> res.setStatus(401))
-                        .permitAll()
-                )
                 .oauth2Login(oauth2 -> oauth2
                         .loginPage("/login")  // 统一登录入口页
                         .authorizationEndpoint(auth -> auth.baseUri("/oauth2/authorize"))
