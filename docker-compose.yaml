@@ -68,7 +68,7 @@ services:
     ports:
       - "389:389"
     volumes:
-      - ./ldap-init.ldif:/container/service/slapd/assets/config/bootstrap/ldif/custom/init.ldif
+      - ./init.ldif:/container/service/slapd/assets/config/bootstrap/ldif/custom/init.ldif
       - ldap-data:/var/lib/ldap
       - ldap-config:/etc/ldap/slapd.d
     networks:
