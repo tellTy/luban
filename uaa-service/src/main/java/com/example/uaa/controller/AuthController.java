@@ -32,7 +32,7 @@ public class AuthController {
     public Map<String, String> authenticate(@RequestBody Map<String, String> loginRequest) {
         String username = loginRequest.get("username");
         String password = loginRequest.get("password");
-
+        System.out.println("====username:"+ username+",password:"+ password);
         try {
             Authentication authentication = authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(username, password)
