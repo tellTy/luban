@@ -1,70 +1,65 @@
-# 创建根域
-dn: dc=example,dc=com
-objectClass: top
-objectClass: domain
-dc: example
-
-# 创建用户组织单元
+# 1. 用户组织单元
 dn: ou=users,dc=example,dc=com
 objectClass: top
 objectClass: organizationalUnit
 ou: users
 
-# 创建组组织单元
+# 2. 组组织单元
 dn: ou=groups,dc=example,dc=com
 objectClass: top
 objectClass: organizationalUnit
 ou: groups
 
-# 创建用户
-dn: uid=ldap_user_1,ou=users,dc=example,dc=com
-objectClass: top
-objectClass: person
-objectClass: organizationalPerson
-objectClass: inetOrgPerson
-cn: LDAP User 1
-sn: User
-uid: ldap_user_1
-userPassword: ldap_user_1
-
-dn: uid=ldap_editor_1,ou=users,dc=example,dc=com
-objectClass: top
-objectClass: person
-objectClass: organizationalPerson
-objectClass: inetOrgPerson
-cn: LDAP Editor 1
-sn: Editor
-uid: ldap_editor_1
-userPassword: ldap_editor_1
-
-dn: uid=ldap_adm_1,ou=users,dc=example,dc=com
-objectClass: top
-objectClass: person
-objectClass: organizationalPerson
-objectClass: inetOrgPerson
-cn: LDAP Admin 1
-sn: Admin
-uid: ldap_adm_1
-userPassword: ldap_adm_1
-
-# 创建组
+# 3. 普通用户组
 dn: cn=USER,ou=groups,dc=example,dc=com
 objectClass: top
 objectClass: groupOfUniqueNames
 cn: USER
 uniqueMember: uid=ldap_user_1,ou=users,dc=example,dc=com
-uniqueMember: uid=ldap_editor_1,ou=users,dc=example,dc=com
-uniqueMember: uid=ldap_adm_1,ou=users,dc=example,dc=com
 
+# 4. 编辑组
 dn: cn=EDITOR,ou=groups,dc=example,dc=com
 objectClass: top
 objectClass: groupOfUniqueNames
 cn: EDITOR
 uniqueMember: uid=ldap_editor_1,ou=users,dc=example,dc=com
-uniqueMember: uid=ldap_adm_1,ou=users,dc=example,dc=com
 
+# 5. 产品管理员组
 dn: cn=PRODUCT_ADMIN,ou=groups,dc=example,dc=com
 objectClass: top
 objectClass: groupOfUniqueNames
 cn: PRODUCT_ADMIN
 uniqueMember: uid=ldap_adm_1,ou=users,dc=example,dc=com
+
+# 6. 普通用户（明文密码：ldap_user_1）
+dn: uid=ldap_user_1,ou=users,dc=example,dc=com
+objectClass: top
+objectClass: person
+objectClass: inetOrgPerson
+cn: ldap user 1
+sn: User
+uid: ldap_user_1
+mail: ldap_user_1@example.com
+userPassword: {CLEARTEXT}ldap_user_1  # 明文密码标识
+
+# 7. 编辑用户（明文密码：ldap_editor_1）
+dn: uid=ldap_editor_1,ou=users,dc=example,dc=com
+objectClass: top
+objectClass: person
+objectClass: inetOrgPerson
+cn: ldap editor 1
+sn: Editor
+uid: ldap_editor_1
+mail: ldap_editor_1@example.com
+userPassword: {CLEARTEXT}ldap_editor_1  # 明文密码标识
+
+# 8. 产品管理员（明文密码：ldap_adm_1）
+dn: uid=ldap_adm_1,ou=users,dc=example,dc=com
+objectClass: top
+objectClass: person
+objectClass: inetOrgPerson
+cn: ldap admin 1
+sn: Admin
+uid: ldap_adm_1
+mail: ldap_adm_1@example.com
+userPassword: {CLEARTEXT}ldap_adm_1  # 明文密码标识

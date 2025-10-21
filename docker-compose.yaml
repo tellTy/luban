@@ -65,6 +65,7 @@ services:
       - LDAP_ORGANISATION=Example
       - LDAP_DOMAIN=example.com
       - LDAP_ADMIN_PASSWORD=admin
+      - LDAP_PASSWORD_HASH=clear  # 指定密码哈希算法为明文
     ports:
       - "389:389"
     volumes:
