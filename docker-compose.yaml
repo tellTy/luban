@@ -92,7 +92,6 @@ services:
       dockerfile: Dockerfile
     container_name: uaa-service
     environment:
-      - SPRING_PROFILES_ACTIVE=dev
       - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/uaa_db?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
       - SPRING_DATASOURCE_USERNAME=root
       - SPRING_DATASOURCE_PASSWORD=root
@@ -119,7 +118,6 @@ services:
       dockerfile: Dockerfile
     container_name: product-service
     environment:
-      - SPRING_PROFILES_ACTIVE=dev
       - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/product_db?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
       - SPRING_DATASOURCE_USERNAME=root
       - SPRING_DATASOURCE_PASSWORD=root
@@ -144,7 +142,6 @@ services:
       dockerfile: Dockerfile
     container_name: gateway-service
     environment:
-      - SPRING_PROFILES_ACTIVE=dev
       - SPRING_CLOUD_NACOS_DISCOVERY_SERVER-ADDR=nacos-server:8848
       - SPRING_CLOUD_NACOS_CONFIG_SERVER-ADDR=nacos-server:8848
       - SECURITY_OAUTH2_RESOURCE-SERVER_JWT_SECRET=your-jwt-secret-key
